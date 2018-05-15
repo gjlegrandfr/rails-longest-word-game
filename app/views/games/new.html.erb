@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>New</h1>
+  <ul>
+    <% @letters.each do |letter| %>
+    <li class="bg-primary"><%= letter %></li>
+    <% end %>
+  </ul>
+  <p>What is the longuest word you can find?</p>
+  <form action="score" method="post" id="new" class="form-inline">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters.join %>
+    <input type="text" class="form-control" name="play">
+    <input type="submit" class="form-control btn-primary" value="Play">
+  </form>
+</div>
